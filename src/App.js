@@ -7,16 +7,16 @@ class App extends Component {
   constructor() {
       super();
       this.state = {
-        name: 'Loading'
+        players: 'Loading',
       };
   }
 
   componentDidMount() {
     const rootRef = firebase.database().ref();
-    const nameRef = rootRef.child('name');
-    nameRef.on('value', snap => {
+    const playersRef = rootRef.child('players/player1/name');
+    playersRef.on('value', snap => {
       this.setState({
-        name: snap.val()
+        players: snap.val()
       });
     });
   }
@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>{this.state.name}</h1>
+        <h1>{this.state.players}</h1>
       </div>
     );
   }
