@@ -2,23 +2,95 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.card {
+  color: #0a0000;
+  border: none;
+  border-radius: 2px;
+  background-color: #ffe5c0;
+  margin: 10px;
+  padding: 12px 15px;
+  display: flex;
+  justify-content: space-between;
+  -webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	-moz-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.player-name {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 500;
+  align-self: center;
 }
 
-.App-intro {
-  font-size: large;
+.stats-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.stats-container > * + * {
+  margin-left: 30px;
 }
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 14px;
+  text-align: right;
+  color: #17a694;
+}
+
+.stats > * + * {
+  margin-top: 5px;
+}
+
+.add-player {
+  padding: 30px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.add-player > * + * {
+  margin-left: 30px;
+}
+
+.input {
+  line-height: 30px;
+  padding: 10px 5px 5px;
+  border: none;
+  border-bottom: 1px solid #ffa72b;
+  font-size: 20px;
+  color: #ffe5c0;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}
+
+.input::placeholder {
+  color: #ffe5c0;
+  font-size: 14px;
+}
+
+.button {
+  padding: 0 30px;
+  border: none;
+  border-radius: 2px;
+  background-color: #ffa72b;
+  color: #ffe5c0;
+  font-size: 20px;
+  font-weight: 400;
+  outline: none;
+  -webkit-animation: scale-up-bl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -moz-animation: scale-up-bl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-bl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.button:hover, .input:hover, .card:hover {
+  cursor: pointer;
+}
+
+@-webkit-keyframes scale-up-ver-center{0%{-webkit-transform:scaleY(.4);transform:scaleY(.4)}100%{-webkit-transform:scaleY(1);transform:scaleY(1)}}@keyframes scale-up-ver-center{0%{-webkit-transform:scaleY(.4);transform:scaleY(.4)}100%{-webkit-transform:scaleY(1);transform:scaleY(1)}}
+@-webkit-keyframes scale-up-bl{0%{-webkit-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:0 100%;transform-origin:0 100%}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 100%;transform-origin:0 100%}}@keyframes scale-up-bl{0%{-webkit-transform:scale(.5);transform:scale(.5);-webkit-transform-origin:0 100%;transform-origin:0 100%}100%{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:0 100%;transform-origin:0 100%}}
