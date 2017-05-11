@@ -49,13 +49,13 @@
 }
 
 .add-player {
-  padding: 30px 0;
+  padding: 30px 10px;
   display: flex;
   justify-content: center;
 }
 
 .add-player > * + * {
-  margin-left: 30px;
+  margin-left: 20px;
 }
 
 .input {
@@ -67,6 +67,7 @@
   color: #ffe5c0;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
+  max-width: 50%;
 }
 
 .input::placeholder {
