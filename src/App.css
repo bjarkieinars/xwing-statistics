@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.header {
+  color: #ffe5c0;
+  padding: 30px 10px 0;
+}
+
 .card {
   color: #0a0000;
   border: none;
@@ -48,14 +53,36 @@
   margin-top: 5px;
 }
 
-.add-player {
+.form {
   padding: 30px 10px;
   display: flex;
   justify-content: center;
 }
 
-.add-player > * + * {
+.form > * + * {
   margin-left: 20px;
+}
+
+.result {
+  flex-direction: column;
+}
+
+.result > * + * {
+  margin: 10px 0 0;
+}
+
+.result-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.label {
+  color: #ffa72b;
+  line-height: 40px;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .input {
@@ -76,7 +103,8 @@
 }
 
 .button {
-  padding: 0 30px;
+  padding: 8px 30px;
+  line-height: 30px;
   border: none;
   border-radius: 2px;
   background-color: #ffa72b;
