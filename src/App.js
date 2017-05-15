@@ -12,11 +12,22 @@ class App extends Component {
     super();
     this.state = {
       players: [],
+      results: [],
     };
   }
 
   componentDidMount() {
     var playersRef = firebase.database().ref("players/");
+    var resRef = firebase.database().ref("results/");
+
+    resRef.on("child_added", (data) => {
+      var newRes = data.val();
+      this.setState(prev => {
+        prev.results.push(newRes)
+        prev.results.sort((a,b) => a.date > b.date)
+        return {results: prev.results.reverse()}
+      })
+    });
 
     playersRef.on("child_added", (data) => {
       var newPlayer = data.val();
@@ -88,6 +99,34 @@ class App extends Component {
     document.getElementById('newplayer').value = '';
   }
 
+  formatDate(date) {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+    date = new Date(date);
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
+  getTime(date) {
+    date = new Date(date);
+    var hour = date.getHours();
+    hour = (hour < 10 ? "0" : "") + hour;
+
+    var min  = date.getMinutes();
+    min = (min < 10 ? "0" : "") + min;
+
+    var time = hour + ':' + min;
+
+    return time;
+  }
+
   render() {
     return (
       <div className="App">
@@ -113,6 +152,19 @@ class App extends Component {
           </div>
           <button className='button' type='submit'>Add</button>
         </form>
+        <h2 className='header'>Results</h2>
+        {this.state.results.map(result =>
+          <div className='card' key={result.date}>
+            <h1 className='player-name'>{result.winner} beat {result.looser}</h1>
+            <div className='stats-container'>
+              <div className='stats'>
+                <span>{this.getTime(result.date)}</span>
+                <span>{this.formatDate(result.date)}</span>
+              </div>
+            </div>
+          </div>
+        )}
+        <h2 className='header'>Players</h2>
         {this.state.players.map(player =>
           <div className='card' key={player.name}>
             <h1 className='player-name'>{player.name}</h1>
