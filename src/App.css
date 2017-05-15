@@ -5,13 +5,13 @@
 .header {
   color: #ffe5c0;
   padding: 30px 10px 0;
+  font-weight: 300;
 }
 
 .card {
-  color: #0a0000;
   border: none;
   border-radius: 2px;
-  background-color: #ffe5c0;
+  background-color: rgba(255,255,255,0.1);
   margin: 10px;
   padding: 12px 15px;
   display: flex;
@@ -26,8 +26,9 @@
   padding: 0;
   text-align: left;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   align-self: center;
+  color: #ffe5c0;
 }
 
 .stats-container {
@@ -95,6 +96,7 @@
   background-color: rgba(0, 0, 0, 0);
   outline: none;
   max-width: 50%;
+  font-weight: 300;
 }
 
 .input::placeholder {
