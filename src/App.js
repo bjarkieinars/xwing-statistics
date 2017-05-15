@@ -193,7 +193,7 @@ class App extends Component {
         )}
         <h2 className='header'>Players</h2>
         {this.state.players.map(player =>
-          <div className='card' key={player.name}>
+          <div className='card card-row' key={player.name}>
             <h1 className='player-name'>{player.name}</h1>
             <div className='stats-container'>
               <div className='stats'>
