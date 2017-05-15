@@ -54,6 +54,10 @@ class App extends Component {
     var playersRef = firebase.database().ref("players/");
     var winnerName = document.getElementById('player1').value;
     var looserName = document.getElementById('player2').value;
+    var winnersList = document.getElementById('winnerslist').value;
+    var loosersList = document.getElementById('looserslist').value;
+    var winnerScore = document.getElementById('winnersscore').value;
+    var looserScore = document.getElementById('loosersscore').value;
 
     if (winnerName === looserName) {
       alert('error 1 - same winner/looser');
@@ -63,6 +67,10 @@ class App extends Component {
     resultsRef.push({
       winner: winnerName,
       looser: looserName,
+      winnerslist: winnersList,
+      looserslist: loosersList,
+      winnersscore: winnerScore,
+      loosersscore: looserScore,
       date: + new Date()
     });
 
@@ -149,18 +157,37 @@ class App extends Component {
                 )}
               </select>
             </div>
+            <div className='result-container'>
+              <input className='input' id='winnerslist' placeholder='Winners List' />
+              <input className='input input--small' id='winnersscore' placeholder='Score' />
+            </div>
+            <div className='result-container'>
+              <input className='input' id='looserslist' placeholder='Loosers List' />
+              <input className='input input--small' id='loosersscore' placeholder='Score' />
+            </div>
+            <button className='button' type='submit'>Add</button>
           </div>
-          <button className='button' type='submit'>Add</button>
+
         </form>
         <h2 className='header'>Results</h2>
         {this.state.results.map(result =>
           <div className='card' key={result.date}>
-            <h1 className='player-name'>{result.winner} beat {result.looser}</h1>
-            <div className='stats-container'>
-              <div className='stats'>
-                <span>{this.getTime(result.date)}</span>
-                <span>{this.formatDate(result.date)}</span>
+            <div className='card-row'>
+              <h1 className='player-name'>{result.winner} beat {result.looser}</h1>
+              <div className='stats-container'>
+                <div className='stats'>
+                  <span>{this.getTime(result.date)}</span>
+                  <span>{this.formatDate(result.date)}</span>
+                </div>
               </div>
+            </div>
+            <div className='card-row card-section'>
+              <p className='result-info'>{result.winnerslist}</p>
+              <p className='result-info'>{result.winnersscore}</p>
+            </div>
+            <div className='card-row'>
+              <p className='result-info'>{result.looserslist}</p>
+              <p className='result-info'>{result.loosersscore}</p>
             </div>
           </div>
         )}

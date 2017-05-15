@@ -14,11 +14,27 @@
   background-color: rgba(255,255,255,0.1);
   margin: 10px;
   padding: 12px 15px;
-  display: flex;
-  justify-content: space-between;
   -webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	-moz-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-section {
+  border-top: 1px solid #fff;
+  margin-top: 10px;
+  padding-top: 4px;
+}
+
+.result-info {
+  text-align: left;
+  color: #17a694;
+  padding: 5px 0 0;
+  margin: 0;
 }
 
 .player-name {
@@ -97,6 +113,11 @@
   outline: none;
   max-width: 50%;
   font-weight: 300;
+}
+
+.input--small {
+  margin-left: 5px;
+  max-width: 15%;
 }
 
 .input::placeholder {
