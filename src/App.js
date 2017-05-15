@@ -23,20 +23,16 @@ class App extends Component {
       this.setState(prev => {
         prev.players.push(newPlayer)
         prev.players.sort((a,b) => a.wins > b.wins)
-        prev.players.reverse();
-        return {players: prev.players}
+        return {players: prev.players.reverse()}
       })
     });
 
     playersRef.on("child_changed", (data) => {
       var player = data.val();
       this.setState(prev => {
-        const idx = prev.players.findIndex(p => p.name === player.name)
-        const newArray = [...prev.players.slice(0, idx), ...prev.players.slice(idx + 1, prev.players.length)]
-        newArray.push(player)
-        newArray.sort((a,b) => a.wins > b.wins)
-        newArray.reverse();
-        return {players: newArray}
+        prev.players[prev.players.findIndex(p => p.name === player.name)] = player;
+        prev.players.sort((a,b) => a.wins > b.wins)
+        return {players: prev.players.reverse()}
       })
     });
   }
