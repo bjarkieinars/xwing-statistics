@@ -173,11 +173,11 @@ class App extends Component {
         {this.state.results.map(result =>
           <div className='card' key={result.date}>
             <div className='card-row'>
-              <h1 className='player-name'>{result.winner} beat {result.loser}</h1>
+              <h1 className='player-name'>{result.winner} wins {result.loser}</h1>
               <div className='stats-container'>
                 <div className='stats'>
-                  <span>{this.getTime(result.date)}</span>
                   <span>{this.formatDate(result.date)}</span>
+                  <span>{this.getTime(result.date)}</span>
                 </div>
               </div>
             </div>

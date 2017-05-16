@@ -14,7 +14,7 @@
   border: none;
   border-radius: 2px;
   background-color: rgba(255,255,255,0.1);
-  margin: 10px;
+  margin: 10px 0;
   padding: 12px 15px;
   -webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	-moz-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -27,16 +27,18 @@
 }
 
 .card-section {
-  border-top: 1px solid #fff;
+  border-top: 1px solid #ffa72b;
   margin-top: 10px;
   padding-top: 4px;
 }
 
 .result-info {
   text-align: left;
-  color: #17a694;
+  color: #dedddd;
   padding: 5px 0 0;
   margin: 0;
+  font-weight: 300;
+  font-size: 14px;
 }
 
 .player-name {
@@ -63,9 +65,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 12px;
   text-align: right;
-  color: #17a694;
+  color: #ffe5c0;
+  opacity: 0.5;
+  font-weight: 200;
 }
 
 .stats > * + * {
@@ -133,7 +137,7 @@
   border: none;
   border-radius: 2px;
   background-color: #ffa72b;
-  color: #ffe5c0;
+  color: #29323c;
   font-size: 20px;
   font-weight: 400;
   outline: none;

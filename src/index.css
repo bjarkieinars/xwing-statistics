@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 10px;
   font-family: sans-serif;
-  background-color: #024;
+  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
 }
