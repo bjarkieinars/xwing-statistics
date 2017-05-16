@@ -53,24 +53,24 @@ class App extends Component {
     var resultsRef = firebase.database().ref("results/");
     var playersRef = firebase.database().ref("players/");
     var winnerName = document.getElementById('player1').value;
-    var looserName = document.getElementById('player2').value;
+    var loserName = document.getElementById('player2').value;
     var winnersList = document.getElementById('winnerslist').value;
-    var loosersList = document.getElementById('looserslist').value;
+    var losersList = document.getElementById('loserslist').value;
     var winnerScore = document.getElementById('winnersscore').value;
-    var looserScore = document.getElementById('loosersscore').value;
+    var loserScore = document.getElementById('losersscore').value;
 
-    if (winnerName === looserName) {
-      alert('error 1 - same winner/looser');
+    if (winnerName === loserName) {
+      alert('error 1 - same winner/loser');
       return;
     }
 
     resultsRef.push({
       winner: winnerName,
-      looser: looserName,
+      loser: loserName,
       winnerslist: winnersList,
-      looserslist: loosersList,
+      loserslist: losersList,
       winnersscore: winnerScore,
-      loosersscore: looserScore,
+      losersscore: loserScore,
       date: + new Date()
     });
 
@@ -82,9 +82,9 @@ class App extends Component {
             'wins': childSnap.child('wins').val() + 1
           })
         }
-        else if (childSnap.child('name').val() === looserName) {
-          var looserRef = firebase.database().ref("players/" + childSnap.key);
-          looserRef.update({
+        else if (childSnap.child('name').val() === loserName) {
+          var loserRef = firebase.database().ref("players/" + childSnap.key);
+          loserRef.update({
             'losses': childSnap.child('losses').val() + 1
           })
         }
@@ -150,7 +150,7 @@ class App extends Component {
               </select>
             </div>
             <div className='result-container'>
-              <label className='label'>Looser</label>
+              <label className='label'>Loser</label>
               <select className='input' id='player2'>
                 {this.state.players.map(player =>
                   <option key={player.name}>{player.name}</option>
@@ -162,8 +162,8 @@ class App extends Component {
               <input className='input input--small' id='winnersscore' placeholder='Score' />
             </div>
             <div className='result-container'>
-              <input className='input' id='looserslist' placeholder='Loosers List' />
-              <input className='input input--small' id='loosersscore' placeholder='Score' />
+              <input className='input' id='loserslist' placeholder='Losers List' />
+              <input className='input input--small' id='losersscore' placeholder='Score' />
             </div>
             <button className='button' type='submit'>Add</button>
           </div>
@@ -173,7 +173,7 @@ class App extends Component {
         {this.state.results.map(result =>
           <div className='card' key={result.date}>
             <div className='card-row'>
-              <h1 className='player-name'>{result.winner} beat {result.looser}</h1>
+              <h1 className='player-name'>{result.winner} beat {result.loser}</h1>
               <div className='stats-container'>
                 <div className='stats'>
                   <span>{this.getTime(result.date)}</span>
@@ -186,8 +186,8 @@ class App extends Component {
               <p className='result-info'>{result.winnersscore}</p>
             </div>
             <div className='card-row'>
-              <p className='result-info'>{result.looserslist}</p>
-              <p className='result-info'>{result.loosersscore}</p>
+              <p className='result-info'>{result.loserslist}</p>
+              <p className='result-info'>{result.losersscore}</p>
             </div>
           </div>
         )}
